@@ -3,6 +3,6 @@
 
 i=0
 until [ $i -ge 10 ]; do
-    echo "Holberton School"
+    echo "Best School"
     let i+=1
 done
