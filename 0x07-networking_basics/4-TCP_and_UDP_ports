@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Bash script displays listenting sockets(-l) and PID(-p)
+
+
+
