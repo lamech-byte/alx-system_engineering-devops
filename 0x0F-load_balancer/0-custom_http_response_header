@@ -2,20 +2,11 @@
 # Configure Nginx so that its HTTP response
 # contains a custom header (on web-01 and web-02).
 
-apt-get update -y 
+apt-get update -y
 apt-get install nginx -y
-
-# Set the default index page
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-
-# Add redirect for /redirect_me
-echo "rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" >> /etc/nginx/sites-available/default
-
-# Set a custom 404 page
-echo "Ceci n'est pas une page" > /var/www/html/h404.html echo "error_page 404 /error-404.html; location = /error-404.html { root /var/www/html; internal; }" >> /etc/nginx/sites-available/default
-
-# Set a custom header with the server name
-echo "add_header X-Served-By $HOSTNAME;" >> /etc/nginx/sites-available/default
-
-# Restart Nginx service
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/h404.html
+sed -i '/listen 80 default_server/a error_page 404 /error-404.html;\nlocation = /error-404.html {\n\troot /var/www/html;\n\tinternal;\n}' /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server/a \\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 service nginx restart
