@@ -29,4 +29,5 @@ backend http_back
 EOF
 
 # Restart the HAproxy service
+systemctl enable haproxy
 systemctl restart haproxy.service
