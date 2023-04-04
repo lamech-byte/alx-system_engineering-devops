@@ -1,10 +1,32 @@
 # Automates the task of creating a custom
 # HTTP header response, but with Puppet.
 
-exec { 'add_header':
-  command     => "/bin/echo 'add_header X-Served-By ${hostname};' >> /etc/nginx/nginx.conf",
-  unless      => "grep -q 'add_header X-Served-By' /etc/nginx/nginx.conf",
-  path        => ['/usr/bin', '/bin'],
-  refreshonly => true,
-  notify      => Service['nginx'],
+# Install Nginx package
+package { 'nginx':
+  ensure => installed,
+}
+
+# Create index file
+file { '/var/www/html/index.nginx-debian.html':
+  content => 'Hello World!',
+}
+
+# Configure custom HTTP response header
+file { '/etc/nginx/sites-available/default':
+  content => template('nginx.conf.erb'),
+  notify  => Service['nginx'],
+}
+
+# Enable default Nginx site
+file { '/etc/nginx/sites-enabled/default':
+  ensure => 'link',
+  target => '/etc/nginx/sites-available/default',
+}
+
+# Restart Nginx service when configuration changes
+service { 'nginx':
+  ensure     => running,
+  enable     => true,
+  hasrestart => true,
+  hasstatus  => true,
 }
