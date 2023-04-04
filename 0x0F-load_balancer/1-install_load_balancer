@@ -6,6 +6,9 @@ add-apt-repository -y ppa:vbernat/haproxy-2.5
 apt-get update -y
 apt-get install -y haproxy
 
+# Make sure HAproxy can be managed via an init script
+sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
+
 # Backup the original configuration file
 cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
 
