@@ -6,7 +6,7 @@
 apt-get install -y --no-install-recommends software-properties-common
 add-apt-repository -y ppa:vbernat/haproxy-2.0
 apt-get update -y
-apt-get install -y haproxy=2.0
+apt-get install -y haproxy=2.0.*
 
 # Make sure HAproxy can be managed via an init script
 sudo sed -i "s/ENABLED=1/" /etc/default/haproxy
