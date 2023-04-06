@@ -2,7 +2,7 @@
 
 In this assignment, I gained knowledge on the significance and functionality of HTTPS. I successfully set up certbot certificates and HAproxy SSL termination on my web servers.
 
-##Tasks
+## Tasks
 
 * **0. World wide web**
 
