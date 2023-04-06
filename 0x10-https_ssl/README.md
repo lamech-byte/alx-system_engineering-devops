@@ -3,6 +3,7 @@
 In this assignment, I gained knowledge on the significance and functionality of HTTPS. I successfully set up certbot certificates and HAproxy SSL termination on my web servers.
 
 ##Tasks
+
 * **0. World wide web
 
 * 0-world_wide_web: This bash script provides details about subdomains on my configured servers.
