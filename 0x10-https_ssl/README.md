@@ -4,13 +4,13 @@ In this assignment, I gained knowledge on the significance and functionality of 
 
 ##Tasks
 
-* **0. World wide web
+***0. World wide web
 
 * 0-world_wide_web: This bash script provides details about subdomains on my configured servers.
 Usage: ./1-world_wide_web <domain> <subdomain>
 Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
 If no subdomain parameter is passed, information about the subdomains www, lb-01, web-01, and web-02 is displayed in that order.
-* **1. HAproxy SSL termination
+***1. HAproxy SSL termination
 
 *1-haproxy_ssl_termination: This file is the HAproxy configuration that enables encrypted SSL traffic for the subdomain www. on TCP port 443.
 
