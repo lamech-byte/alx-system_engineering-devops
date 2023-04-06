@@ -1,0 +1,28 @@
+frontend www-http
+        bind *:80
+        mode http
+        option forwardfor
+        default_backend web-backend
+        redirect scheme https code 301 if !{ ssl_fc }
+
+frontend www-https
+  bind *:443 ssl crt /etc/haproxy/ssl/cert.pem
+  mode http
+  option forwardfor
+  reqadd X-Forwarded-Proto:\ https
+  default_backend http_back
+
+backend http_back
+  balance roundrobin
+  mode http
+  stats enable
+  stats uri /haproxy?stats
+  stats realm strictly\ private
+  stats auth A_Username:YourPassword
+  stats auth Anothe_User:passwd
+  option httpclose
+  option forwardfor
+  http-request set-header X-Forwarded-Port %[dst_port]
+  http-request add-header X-Forwarded-Proto https if { ssl_fc }
+  server 116739-web-01 54.236.17.124:80 check
+  server 116739-web-02 100.24.237.123:80 check
