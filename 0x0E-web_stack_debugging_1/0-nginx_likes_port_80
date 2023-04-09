@@ -1,5 +1,5 @@
-#!/bin/bash
-# Configures an Nginx server to listen on port 80.
+#!/usr/bin/env bash
+#Requirement: Nginx must be running, and listening on port 80 of all the server’s active IPv4 IPs
 
 # Check if Nginx is running
 if ! systemctl is-active --quiet nginx.service; then
