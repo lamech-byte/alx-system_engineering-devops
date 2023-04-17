@@ -1,14 +1,54 @@
-# ufw configure
-sudo vi /etc/default/ufw
+# /etc/default/ufw
+#
 
-# change th value of the variable
+# Set the default forward policy to ACCEPT, DROP or REJECT.  Please note that if
+# you change this you will most likely want to adjust your rules.
 DEFAULT_FORWARD_POLICY="ACCEPT"
 
-# Add the ufw rule to redirect port 8080/TCP to port 80/TCP
-sudo ufw route allow 8080/tcp
+# Set the default input and output policy to ACCEPT, DROP or REJECT.  Please note
+# that if you change this you will most likely want to adjust your rules
+# accordingly.
+DEFAULT_INPUT_POLICY="DROP"
+DEFAULT_OUTPUT_POLICY="ACCEPT"
 
-# Reload changes
-sudo ufw reload
+# Set the default application policy to ACCEPT, DROP or REJECT. See
+# 'man ufw-framework' for a full description.
+DEFAULT_APPLICATION_POLICY="ACCEPT"
 
-# checking the ufw status
-sudo ufw status verbose
+# Uncomment the following line to disable ipv6.
+# IPV6=no
+IPV6=yes
+
+# Uncomment the following line to enable packet filtering for multicast packets.
+# Note that multicast packets are not filtered by default, which may have
+# security implications. See https://wiki.debian.org/UnicastLocallyAssignedIPs
+# for more information.
+# IP_MULTICAST=yes
+
+# Uncomment the following line to enable packet filtering for broadcast packets.
+# Note that broadcast packets are not filtered by default, which may have
+# security implications.
+# IP_BROADCAST=yes
+
+# Uncomment the following line to disable logging of denied packets.
+# LOG_DROPPED_DUP_INPUTS=no
+
+# Uncomment the following line to enable logging of outgoing broadcast packets.
+# LOG_OUTGOING_BROADCAST=no
+
+# Uncomment the following line to enable logging of incoming SYN packets that
+# are not SYN+ACK packets. Note that logging such denied packets can be a
+# useful debugging tool, but potentially can leak sensitive information.
+# LOG_TCP_IN_DROP_SYNFIN=no
+
+# Uncomment the following line to enable logging of successful outgoing connections
+# from processes running as an unprivileged user. This can be useful to help
+# identify potential security issues, but can also fill up your logs very quickly.
+# LOG_UNPRIVILEGED_OUTPUT=no
+
+# Uncomment the following line to enable packet filtering for locally-generated
+# packets. By default, ufw will not filter packets that are sent from the local
+# system to the local system.
+# LOCAL_PACKET_FILTERING=yes
+
+# Uncomment the following line to enable ipv6 firewall
