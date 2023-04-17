@@ -1,0 +1,14 @@
+# ufw configure
+sudo vi /etc/default/ufw
+
+# change th value of the variable
+DEFAULT_FORWARD_POLICY="ACCEPT"
+
+# Add the ufw rule to redirect port 8080/TCP to port 80/TCP
+sudo ufw route allow 8080/tcp
+
+# Reload changes
+sudo ufw reload
+
+# checking the ufw status
+sudo ufw status verbose
