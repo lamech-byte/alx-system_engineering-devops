@@ -5,13 +5,10 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    
     # Check if the correct number of arguments is provided
     user_id = sys.argv[1]
-    
     # URL of the API endpoint to get the employee information
     url = "https://jsonplaceholder.typicode.com/"
-    
     # Get the employee information
     user = requests.get(url + "users/{}".format(user_id)).json()
     username = user.get("username")
