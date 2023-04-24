@@ -15,7 +15,6 @@ if __name__ == "__main__":
     # Get the employee information
     user = requests.get(url + "users/{}".format(user_id)).json()
     username = user.get("username")
-    
     # Get the employee's tasks
     todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
