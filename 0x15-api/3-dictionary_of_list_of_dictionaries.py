@@ -9,7 +9,6 @@ if __name__ == "__main__":
     # retrieve all users
     url = "https://jsonplaceholder.typicode.com/"
     users = requests.get(url + "users").json()
-    
     # create a dictionary to group tasks by user ID and export the dictionary to a JSON file
     with open("todo_all_employees.json", "w") as jsonfile:
         json.dump({
