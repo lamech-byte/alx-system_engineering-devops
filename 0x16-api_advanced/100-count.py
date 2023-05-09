@@ -3,7 +3,7 @@
 import requests
 import time
 
-def count_words(subreddit, word_list, last_post_id=None, word_dict=None):
+def count_words(subreddit, word_list, instances={}, after="", count=0):
     if word_dict is None:
         word_dict = {}
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -28,4 +28,4 @@ def count_words(subreddit, word_list, last_post_id=None, word_dict=None):
     if last_post_id is None and len(word_dict) == 0:
         return None
     if last_post_id is None:
-        sorted_words = sorted(word_dict.items(), key=lambda x: (-x[1],
+        sorted_words = sorted(word_dict.items(), key=lambda x: (-x[1], x[0]))
