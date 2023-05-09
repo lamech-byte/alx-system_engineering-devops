@@ -7,7 +7,7 @@ def count_words(subreddit, word_list, last_post_id=None, word_dict=None):
     if word_dict is None:
         word_dict = {}
     headers = {"User-Agent": "Mozilla/5.0"}
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100&after={last_post_id}"
+    url = "https://www.reddit.com/r/{}/hot.json?limit=100&after={}".format(subreddit, last_post_id)
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != 200:
         return None
