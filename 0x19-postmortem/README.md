@@ -1,8 +1,8 @@
 # Postmortem: Service Outage on XYZ Web Application
 
 ## Issue Summary:
-Duration: May 10, 2023, 8:00 AM - May 10, 2023, 10:00 AM (UTC)
-Impact: The XYZ web application experienced a complete service outage during the specified duration. Users were unable to access the application, resulting in a 100% service disruption.
+* Duration: May 10, 2023, 8:00 AM - May 10, 2023, 10:00 AM
+* Impact: The XYZ web application experienced a complete service outage during the specified duration. Users were unable to access the application, resulting in a 100% service disruption.
 
 ## Timeline:
 - 8:00 AM: The issue was detected when the monitoring system triggered an alert for a sudden increase in server response time.
