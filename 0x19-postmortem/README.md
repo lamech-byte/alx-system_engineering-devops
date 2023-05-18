@@ -1,8 +1,8 @@
-# Postmortem: Service Outage on XYZ Web Application
+# Postmortem: Service Outage on Web Application
 
 ## Issue Summary:
 * Duration: May 10, 2023, 8:00 AM - May 10, 2023, 10:00 AM
-* Impact: The XYZ web application experienced a complete service outage during the specified duration. Users were unable to access the application, resulting in a 100% service disruption.
+* Impact: The web application experienced a complete service outage during the specified duration. Users were unable to access the application, resulting in a 100% service disruption.
 
 ## Timeline:
 - 8:00 AM: The issue was detected when the monitoring system triggered an alert for a sudden increase in server response time.
@@ -25,4 +25,4 @@
   - Enhance monitoring system to trigger alerts for abnormal CPU utilization.
   - Conduct a postmortem review with the development team to share lessons learned and identify additional preventative measures.
 
-This postmortem provides an overview of a service outage that occurred on the XYZ web application. The root cause was identified as a bug in the latest deployment, causing a memory leak. The issue was promptly resolved by rolling back the deployment and restarting the application servers. To prevent similar incidents in the future, measures such as improving the deployment process, strengthening monitoring capabilities, and conducting regular code reviews have been identified. The identified tasks will be addressed to ensure the stability and reliability of the application moving forward.
+This postmortem provides an overview of a service outage that occurred on the web application. The root cause was identified as a bug in the latest deployment, causing a memory leak. The issue was promptly resolved by rolling back the deployment and restarting the application servers. To prevent similar incidents in the future, measures such as improving the deployment process, strengthening monitoring capabilities, and conducting regular code reviews have been identified. The identified tasks will be addressed to ensure the stability and reliability of the application moving forward.
